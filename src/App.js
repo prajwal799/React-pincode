@@ -9,7 +9,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>PinCode</h1>
+      <h1>Card </h1>
       <PinInput onChange={(pin) => setPin(pin)}  pin={pin}/>
       <hr />
       <h3>{pin}</h3>

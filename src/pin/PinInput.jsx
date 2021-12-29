@@ -6,7 +6,7 @@ const onFocus = {
     border : "9px solid blue"
 }
 
-function PinInput({noOfBoxes = 5 , length =1,onChange,pin}){
+function PinInput({noOfBoxes = 4 , length =4,onChange,pin}){
    const [values , setValues] = useState(() => 
      new Array(noOfBoxes).fill(""));
 
@@ -34,23 +34,23 @@ function PinInput({noOfBoxes = 5 , length =1,onChange,pin}){
        onChange(values.join(""));
      }
 
-    //  const handlePaste = (e) => {
-    //    e.preventdefault();
-    //    const pasteValue = e.clipboardData
-    //    .getData("text")
-    //    .split("")
-    //    .filter((a,i) => i < length * noOfBoxes);
+     const handlePaste = (e) => {
+       e.preventdefault();
+       const pasteValue = e.clipboardData
+       .getData("text")
+       .split("")
+       .filter((a,i) => i < length * noOfBoxes);
 
-    //    pasteValue.forEach((char , index) => {
-    //      values[index] = char ; 
-    //        ref.current[index].value = char ; 
-    //        if(index < noOfBoxes - 1){
-    //          ref.current[index + 1].focus();
-    //        }
-    //        setValues([...values]);
-    //        onChange && onChange(values.join(""));
-    //    })
-    //  }
+       pasteValue.forEach((char , index) => {
+         values[index] = char ; 
+           ref.current[index].value = char ; 
+           if(index < noOfBoxes - 1){
+             ref.current[index + 1].focus();
+           }
+           setValues([...values]);
+           onChange && onChange(values.join(""));
+       })
+     }
 
 
     //  useEffect(() => {

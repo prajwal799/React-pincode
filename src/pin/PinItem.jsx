@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 const PinItem = React.forwardRef(({length , handleChange , handleBackSpace,pin}, ref) => {
     const [isActive , setActive] = useState(false);
      useEffect(() => {
-         if(pin.length == 5){
+         if(pin.length == 16){
              setActive(true);
          }else {
              setActive(false);
